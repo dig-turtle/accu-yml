@@ -1,0 +1,46 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+    id 'com.gradle.plugin-publish' version '0.10.0'
+    id 'java-gradle-plugin'
+}
+
+dependencies {
+    compileOnly gradleApi()
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.11'
+    testCompileOnly gradleTestKit()
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+group = "io.digturtle"
+version = "0.0.1-SNAPSHOT"
+
+pluginBundle {
+    website = POM_URL
+    vcsUrl = POM_SCM_URL
+    description = POM_DESCRIPTION
+    tags = ['yml', 'yaml', 'validation', 'validations']
+
+    plugins {
+        accuYml {
+            id = 'io.digturtle.gradle.accu.yml'
+            displayName = POM_NAME
+            description = POM_DESCRIPTION
+        }
+    }
+}
